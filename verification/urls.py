@@ -17,7 +17,7 @@ from django.urls import path
 from django.conf.urls import url,include
 from .views import (
     sent_mail,checked
-)# vse good HZ HULI VUYOB
+)#it is only UI issue,move on
 
 
 urlpatterns = [

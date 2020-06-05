@@ -15,9 +15,9 @@ from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.csrf import csrf_exempt
-EMAIL_ADDRESS = 'no.reply.testmail12@gmail.com'
+EMAIL_ADDRESS = ''
 #EMAIL_ADDRESS = os.environ.get('dmurinka@gmail.com')
-EMAIL_PASSWORD = '542741863952f'
+EMAIL_PASSWORD = ''
 
 # Create your views here.
 def landing(request):
@@ -78,15 +78,16 @@ def sent_mail(request):
 </table>
 
 
-"""
-    # Create message container - the correct MIME type is multipart/alternative here!
+"""#need to adjust msg body,because of VALUE sasha,and go finally use bootstrap? how do you do
+
+    # Create message container - the correct MIME type is multipart/alternative
     MESSAGE = MIMEMultipart('alternative')
     MESSAGE['subject'] = SUBJECT
     MESSAGE['To'] = TO
     MESSAGE['From'] = EMAIL_ADDRESS
     MESSAGE.preamble = """
     Your mail reader does not support the report format.
-    Please visit us <a href="http://www.mysite.com">online</a>!"""
+    Please visit us <a href="http://www...""" #rand sites
 
     # Record the MIME type text/html.
     HTML_BODY = MIMEText(BODY, 'html')
@@ -108,4 +109,4 @@ def sent_mail(request):
 
 
 def checked(request):
-    return render(request, "newsletters/unsubcribe.html", {})#хуйовий хтмл
+    return render(request, "newsletters/unsubcribe.html", {})#omg sasha TAKE A LOOK PLEASE AT THIS хтмл
